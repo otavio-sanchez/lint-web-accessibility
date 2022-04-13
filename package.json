@@ -1,13 +1,13 @@
 {
-  "name": "eslint-plugin-lint-web-acessibility",
-  "version": "0.0.0",
-  "description": "linter for acessibility",
+  "name": "eslint-plugin-acessibility",
+  "version": "0.0.1",
+  "description": "Eslint plugin for acessibility",
   "keywords": [
     "eslint",
     "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "lint-web-accessibility",
+  "author": "Otávio Sanchez",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint .",

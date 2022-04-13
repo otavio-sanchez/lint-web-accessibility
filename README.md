@@ -1,40 +1,33 @@
-# Lint Web Accessibility
+# ESLint Plugin Accessibility
 
-O Lint Web Acessibility é um linter capaz de ajudar a implementar diversas regras de acessibilidade, que garante o acesso a todas as pessoas, em especial, pessoas com deficiência, que muitas vezes acabam sendo impedidas de acessar conteúdos devido a barreiras de acesso.
+O ESLint Plugin Accessibility é um plugin capaz de ajudar a implementar diversas regras de acessibilidade, que garante o acesso a todas as pessoas, em especial, pessoas com deficiência, que muitas vezes acabam sendo impedidas de acessar conteúdos devido a barreiras de acesso.
 
-## Installation
+## Instalação
 
-You'll first need to install [ESLint](https://eslint.org/):
+Primeiramente instale o [ESLint](https://eslint.org/):
 
 ```sh
 npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-lint-web-acessibility`:
+Depois, instale `eslint-plugin-acessibility`:
 
 ```sh
-npm install eslint-plugin-lint-web-acessibility --save-dev
+npm install eslint-plugin-acessibility --save-dev
 ```
 
-## Usage
+## Usar
 
-Add `lint-web-acessibility` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Adicione `eslint-plugin-acessibility` nos plugins no seu arquivo `.eslintrc` de configuração.
 
 ```json
 {
     "plugins": [
-        "lint-web-acessibility"
+        "acessibility"
     ]
 }
 ```
 
+## Sobre 
 
-Then configure the rules you want to use under the rules section.
-
-```json
-{
-    "rules": {
-        "lint-web-acessibility/rule-name": 2
-    }
-}
-```
+Desenvolvido por Otávio Sanchez
