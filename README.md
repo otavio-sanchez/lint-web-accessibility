@@ -24,7 +24,11 @@ Adicione `eslint-plugin-acessibility` nos plugins no seu arquivo `.eslintrc` de 
 {
     "plugins": [
         "acessibility"
-    ]
+    ],
+    "rules": {
+        "acessibility/role-semantic": 1,
+        "acessibility/image-alt": 1,
+    }
 }
 ```
 

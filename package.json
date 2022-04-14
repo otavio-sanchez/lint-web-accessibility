@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-acessibility",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Eslint plugin for acessibility",
   "keywords": [
     "eslint",
