@@ -18,14 +18,7 @@ const rule = require("../../../lib/rules/click-button"),
 
 const ruleTester = new RuleTester();
 ruleTester.run("click-button", rule, {
-  valid: [
-    // give me some code that won't trigger a warning
-  ],
+  valid: [],
 
-  invalid: [
-    {
-      code: "<button onClick",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
-    },
-  ],
+  invalid: [],
 });

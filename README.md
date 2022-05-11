@@ -27,6 +27,9 @@ Adicione `eslint-plugin-acessibility` nos plugins no seu arquivo `.eslintrc` de 
     ],
     "rules": {
         "acessibility/image-alt": 1,
+        "acessibility/click-button": 1,
+        "acessibility/title-order": 1,
+        "acessibility/list": 1
     }
 }
 ```
