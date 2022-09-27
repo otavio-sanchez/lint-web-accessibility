@@ -1,7 +1,0 @@
-/config
-/coverage
-/node_modules
-**/node_modules
-/scripts
-package-lock.json
-node_modules
