@@ -15,6 +15,10 @@
     "test": "mocha tests --recursive"
   },
   "dependencies": {
+    "aria-query": "^5.3.0",
+    "has": "^1.0.3",
+    "jsx-ast-utils": "^3.3.4",
+    "language-tags": "^1.0.8",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
