@@ -49,12 +49,13 @@ Adicione `eslint-plugin-acessibility` nos plugins no seu arquivo `.eslintrc` de 
 ## Regras
 
 | Rule | Description | 
+|:-----|:--------:|
 | access-key-invalid | Ensure that the accessKey property is not utilized on any element to prevent conflicts with keyboard commands utilized by screen readers. | 
 | autofocus-invalid | Ensure that the autoFocus property is not utilized. | 
 | click-button | insert a function click a button | 
 | distracting-elements | Ensure that distracting elements are not used. | 
-| emoji-acessible | Enforce that emojis are wrapped in <span> tags and provide screen reader accessibility. | 
-| iframe-title | Ensure that <iframe> elements have a title attribute. | 
+| emoji-acessible | Enforce that emojis are wrapped in span tags and provide screen reader accessibility. | 
+| iframe-title | Ensure that iframe elements have a title attribute. | 
 | image-alt | Insert alt into the image element | 
 | invalid-onchange | Ensure that onBlur is used instead of onChange on select menus for better accessibility. | 
 | lang | Make sure the lang attribute is set to a valid value. | 

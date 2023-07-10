@@ -34,6 +34,7 @@ Adicione \`eslint-plugin-acessibility\` nos plugins no seu arquivo \`.eslintrc\`
 ## Regras
 
 | Rule | Description | 
+|:-----|:--------:|
 (((rules)))
 
 ## Sobre 
@@ -66,6 +67,9 @@ fs.readdir(directoryPath, (err, files) => {
   content = pluginDocumentation.replace('(((rules)))', content)
 
   content = content.replace('(((rules-code)))', rulesCode)
+
+  content = content.replaceAll('<', '')
+  content = content.replaceAll('>', '')
 
   fs.writeFile('./README.md', content, (err) => {
     if (err) {
