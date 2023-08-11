@@ -19,6 +19,18 @@ RuleTester.setDefaultConfig({
   },
 })
 
+const valid = [
+  {
+    code: `<input onChange={() => null} />`,
+  },
+];
+
+const invalid = [
+  {
+    code: `<select onChange={() => null} />`,
+    errors: [{ message: "Ensure that onBlur is used instead of onChange on select menus for better accessibility." }],
+  }
+];
 
 //------------------------------------------------------------------------------
 // Tests
@@ -26,9 +38,9 @@ RuleTester.setDefaultConfig({
 
 const ruleTester = new RuleTester();
 ruleTester.run("invalid-onchange", rule, {
-  valid: [
-  ],
-
-  invalid: [
-  ],
+  valid,
+  invalid,
 });
+
+
+module.exports = { valid, invalid };

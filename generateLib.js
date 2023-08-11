@@ -41,12 +41,14 @@ Adicione \`eslint-plugin-acessibility\` nos plugins no seu arquivo \`.eslintrc\`
 
 Desenvolvido por Otávio Sanchez`;
 
-const fs = require('fs');
+const fs = require("fs");
 
-const directoryPath = 'lib/rules';
+const directoryPath = "lib/rules";
 
-let content = ''
-let rulesCode = ''
+let content = "";
+let rulesCode = "";
+
+let allRules = [];
 
 fs.readdir(directoryPath, (err, files) => {
   if (err) {
@@ -54,30 +56,69 @@ fs.readdir(directoryPath, (err, files) => {
     return;
   }
 
-  files.forEach(file => {
-    const rule = require(`./${directoryPath}/${file}`)
-    
-    const ruleName = file.replace(/\.js$/, '')
+  files.forEach((file) => {
+    const rule = require(`./${directoryPath}/${file}`);
 
-    rulesCode = rulesCode + `        "acessibility/${ruleName}": 1, \n`
-    
-    content = content + `| ${ruleName} | ${rule.meta.docs.description} | \n`
+    const ruleName = file.replace(/\.js$/, "");
+
+    rulesCode = rulesCode + `        "acessibility/${ruleName}": 1, \n`;
+
+    allRules = allRules.concat({
+      file,
+      description: rule.meta.docs.description,
+      ruleName,
+    });
+
+    content = content + `| ${ruleName} | ${rule.meta.docs.description} | \n`;
   });
 
-  content = pluginDocumentation.replace('(((rules)))', content)
+  let text
 
-  content = content.replace('(((rules-code)))', rulesCode)
+  allRules.map((item) => {
+    const test = require(`./tests/lib/rules/${item.file}`);
 
-  content = content.replaceAll('<', '')
-  content = content.replaceAll('>', '')
+    text = text + `
+    
+/subsection{${item.ruleName}}
 
-  fs.writeFile('./README.md', content, (err) => {
+${item.description}
+
+Exemplo do erro:
+/begin{lstlisting}[style=html]
+  ${test.invalid[0].code}
+/end{lstlisting}
+
+Exemplo da sugestão de correção do Linter:
+/begin{lstlisting}[style=html]
+    ${test.valid[0].code}
+/end{lstlisting}
+ 
+    `
+  })
+
+  content = pluginDocumentation.replace("(((rules)))", content);
+
+  content = content.replace("(((rules-code)))", rulesCode);
+
+  content = content.replaceAll("<", "");
+  content = content.replaceAll(">", "");
+
+  fs.writeFile("./README.md", content, (err) => {
     if (err) {
-      console.error('Ocorreu um erro ao criar o arquivo:', err);
+      console.error("Ocorreu um erro ao criar o arquivo:", err);
       return;
     }
-  
-    console.log('Arquivo Markdown criado com sucesso!');
+
+    console.log("Arquivo Markdown criado com sucesso!");
+  });
+
+  fs.writeFile("./oi.txt", text, (err) => {
+    if (err) {
+      console.error("Ocorreu um erro ao criar o arquivo:", err);
+      return;
+    }
+
+    console.log("Arquivo Markdown criado com sucesso!");
   });
 });
 

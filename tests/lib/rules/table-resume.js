@@ -11,16 +11,9 @@
 const rule = require("../../../lib/rules/table-resume"),
   RuleTester = require("eslint").RuleTester;
 
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
-
-const ruleTester = new RuleTester();
-ruleTester.run("table-resume", rule, {
-  valid: [
-    {
-      code: `<table>
+const valid = [
+  {
+    code: `<table>
       <caption>description</caption>
       <tr>
         <th>Company</th>
@@ -38,12 +31,12 @@ ruleTester.run("table-resume", rule, {
         <td>Mexico</td>
       </tr>
     </table>`,
-    }
-  ],
+  },
+];
 
-  invalid: [
-    {
-      code: `<table>
+const invalid = [
+  {
+    code: `<table>
       <tr>
         <th>Company</th>
         <th>Contact</th>
@@ -60,7 +53,22 @@ ruleTester.run("table-resume", rule, {
         <td>Mexico</td>
       </tr>
     </table>`,
-    errors: [{ message: "Insert the caption element inside an table", type: "JSXOpeningElement" }],
-    }
-  ],
+    errors: [
+      {
+        message: "Insert the caption element inside an table",
+        type: "JSXOpeningElement",
+      },
+    ],
+  },
+];
+//------------------------------------------------------------------------------
+// Tests
+//------------------------------------------------------------------------------
+
+const ruleTester = new RuleTester();
+ruleTester.run("table-resume", rule, {
+  valid,
+  invalid,
 });
+
+module.exports = { valid, invalid };
